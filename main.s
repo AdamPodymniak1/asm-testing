@@ -2,33 +2,32 @@
 
 .data
 
-hellowrld: .ascii "HELLO, WORLD!" # CREATE DATA POINT
-newline: .byte 0x0A # ADDED NEWLINE
-len = . - hellowrld # COUNTS CHARS INCLUDING \n
-
-# NEW TEXT DATA
-hello2: .ascii "YOU TOO"
-new2: .byte 0x0A
-l2 = . - hello2
+hellowrld: .ascii "HELLO, WORLD!"
+newline: .byte 0x0A
+len = . - hellowrld
 
 .text
 _start:
 
-# HELLO WORLD CODE:
-mov $1, %rax # SPECIFY WRITING MODE
-mov $1, %rdi # SPECIFY STD OUT (TERMINAL)
-mov $hellowrld, %rsi # SEND DATA DIRECTLY
-mov $len, %rdx # SPECIFY STRINGS LENGTH
-syscall # CALLING THE WRITE FUNCTION
+mov $return, %r15 # STACKING RETURN ADDRESS ON R15
 
-# ANOTHER WRITE CALL
+jmp print # MOVE PROGRAM TO PRINT FUNCTION
+
+return: # ADDING LABEL FOR MANUALLY CREATING CALLSTACK
+ jmp exit
+
+# PRINT FUNCTION:
+print:
 mov $1, %rax
 mov $1, %rdi
-leaq hello2(%rip), %rsi # USING LEAQ (Load Effective Adress Quad) TO SPECIFY A POINTER
-mov $l2, %rdx
+mov $hellowrld, %rsi
+mov $len, %rdx
 syscall
+# COULD DO jmp exit AFTER FINISHING PRINTING (rigid, not good practice). See return for better alternative
+jmp *%r15 # JUMPING TO RETURN LABEL (* means indirect jump, that is to jump to what register is storing, and not to the register itself)
 
-# SAFE EXITING
+# EXIT FUNCTION
+exit:
 mov $60, %rax
 xor %rdi, %rdi
 syscall
