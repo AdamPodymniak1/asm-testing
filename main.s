@@ -2,6 +2,8 @@
 
 .data
 
+callstack: .skip 4096, 0x0 # INITIALIZING CALLSTACK (500 rows, 8 bytes each, rounded to closest binary value 500*8=4000~~4096). Zeroes out on initialization (0x0)
+
 hellowrld: .ascii "HELLO, WORLD!"
 newline: .byte 0x0A
 len = . - hellowrld
@@ -9,24 +11,23 @@ len = . - hellowrld
 .text
 _start:
 
-mov $return, %r15 # STACKING RETURN ADDRESS ON R15
+mov $callstack, %r15 # SAVING CALLSTACK ARRAY TO THE REGISTRY
+mov $exit, %rax # SAVE EXIT ADDRESS IN REGISTRY
+mov %rax, (%r15) # SAVE IT IN CALLSTACK
 
-jmp print # MOVE PROGRAM TO PRINT FUNCTION
+jmp print
 
-return: # ADDING LABEL FOR MANUALLY CREATING CALLSTACK
- jmp exit
-
-# PRINT FUNCTION:
 print:
 mov $1, %rax
 mov $1, %rdi
 mov $hellowrld, %rsi
 mov $len, %rdx
 syscall
-# COULD DO jmp exit AFTER FINISHING PRINTING (rigid, not good practice). See return for better alternative
-jmp *%r15 # JUMPING TO RETURN LABEL (* means indirect jump, that is to jump to what register is storing, and not to the register itself)
 
-# EXIT FUNCTION
+mov (%r15), %rax # MOVE CURRENT CALLSTACK VALUE TO REGISTRY
+add $8, %r15 # INCREASE CALLSTACK TO GET TO NEXT, EMPTY VALUE (for more nested functions)
+jmp *%rax # JUMP TO CALLSTACK VALUE
+
 exit:
 mov $60, %rax
 xor %rdi, %rdi
