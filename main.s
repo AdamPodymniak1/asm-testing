@@ -17,14 +17,14 @@ _start:
 # HELLO WORLD CODE:
 mov $1, %rax # SPECIFY WRITING MODE
 mov $1, %rdi # SPECIFY STD OUT (TERMINAL)
-mov $hellowrld, %rsi # SEND DATA ADRESS
+mov $hellowrld, %rsi # SEND DATA DIRECTLY
 mov $len, %rdx # SPECIFY STRINGS LENGTH
 syscall # CALLING THE WRITE FUNCTION
 
 # ANOTHER WRITE CALL
 mov $1, %rax
 mov $1, %rdi
-mov $hello2, %rsi
+leaq hello2(%rip), %rsi # USING LEAQ (Load Effective Adress Quad) TO SPECIFY A POINTER
 mov $l2, %rdx
 syscall
 
