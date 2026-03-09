@@ -22,6 +22,7 @@ loop:
     # jle = Less or Equal (Signed)
     # je  = Equal / jne = Not Equal (Unsigned)
     # jb  = Below / jbe = Below or Equal (Unsigned)
+    # jz = If Zero
     
     jge exit
 
