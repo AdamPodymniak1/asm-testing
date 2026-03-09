@@ -2,8 +2,6 @@
 
 .data
 
-s1: .asciz "Testing\n"
-
 .text
 _start:
 
