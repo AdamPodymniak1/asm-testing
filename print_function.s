@@ -52,5 +52,5 @@ ret
 
 exit:
 mov $60, %rax
-xor %rsi, %rsi
+xor %rdi, %rdi
 syscall

@@ -33,5 +33,5 @@ idiv %rbx # CAN USE NEGATIVE NUMBERS (rax=-1, rdx=-3)
 
 exit:
 mov $60, %rax
-xor %rsi, %rsi
+xor %rdi, %rdi
 syscall
