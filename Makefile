@@ -1,10 +1,13 @@
-all: main
+SRC ?= main.s
+BASE = $(basename $(SRC))
 
-main: main.o
-	@ld main.o -o main
+all: $(BASE)
 
-main.o: main.s
-	@as main.s -o main.o
+$(BASE): $(BASE).o
+	@ld $(BASE).o -o $@
+
+$(BASE).o: $(SRC)
+	@as $< -o $@
 
 run: all
-	@./main
+	@./$(BASE)
