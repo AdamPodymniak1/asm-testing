@@ -10,6 +10,10 @@ char_out: .byte 0, 10 # SPACE FOR ONE CHAR AND NEWLINE
 .text
 _start:
 lea str2, %rax # GET DATA ADRESS (mov copies the content, lea copies the adress)
+call str_len
+jmp exit
+
+str_len:
 xor %rcx, %rcx # SET RCX TO 0
 
 loop:
@@ -29,6 +33,7 @@ mov $1, %rdi
 mov $char_out, %rsi
 mov $2, %rdx
 syscall
+ret
 
 exit:
 mov $60, %rax
