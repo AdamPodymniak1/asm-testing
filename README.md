@@ -26,6 +26,7 @@ These files represent my current study progression:
 * **int_to_ascii.s**: Converting raw numerical data into printable characters, and to binary.
 * **read.s**: Reads data from the terminal and prints them back.
 * **simple_arrays.s**: Showcases how arrays work in assembly using simple examples.
+* **tokenizer.s**: Full tokenizer app to clear unnecessary whitespaces and break strings into tokens.
 
 ---
 
