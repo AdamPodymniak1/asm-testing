@@ -24,6 +24,8 @@ These files represent my current study progression:
 * **print_function.s**: Standardizing printing logic for reuse.
 * **mul_div.s**: Showcasing arithmetic operations beyond addition/subtraction.
 * **int_to_ascii.s**: Converting raw numerical data into printable characters, and to binary.
+* **read.s**: Reads data from the terminal and prints them back.
+* **simple_arrays.s**: Showcases how arrays work in assembly using simple examples.
 
 ---
 
