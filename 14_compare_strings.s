@@ -15,7 +15,7 @@ newline: .byte '\n' # NEWLINE FOR PRINT_LINE
 .text
 _start:
 
-# LOAD TWO ARGUMENTS
+# LOAD THREE ARGUMENTS
 lea (str1), %rdi
 lea (str2), %rsi
 mov $3, %rdx
