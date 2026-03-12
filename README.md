@@ -30,7 +30,8 @@ These files represent my current study progression:
 * **compare_strings.s**: Checks if two strings are the same. Also has more comples version, which checks if n-characters of two strings are the same.
 
 
-* **lab1.s**: Finished code from lab1.
+* **lab1.s**: Hello world example.
+* **lab1.s**: Different loops.
 
 ---
 
