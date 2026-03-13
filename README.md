@@ -28,6 +28,7 @@ These files represent my current study progression:
 * **simple_arrays.s**: Showcases how arrays work in assembly using simple examples.
 * **tokenizer.s**: Full tokenizer app to clear unnecessary whitespaces and break strings into tokens.
 * **compare_strings.s**: Checks if two strings are the same. Also has more comples version, which checks if n-characters of two strings are the same.
+* **tiny_shell.s**: Tiny Shell with three commands: echo (prints string), exit (exits app), help (prints help manual). Also has support for unsupported commands.
 
 
 * **lab1.s**: Hello world example.
