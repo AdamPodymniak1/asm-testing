@@ -29,6 +29,8 @@ These files represent my current study progression:
 * **tokenizer.s**: Full tokenizer app to clear unnecessary whitespaces and break strings into tokens.
 * **compare_strings.s**: Checks if two strings are the same. Also has more comples version, which checks if n-characters of two strings are the same.
 * **tiny_shell.s**: Tiny Shell with three commands: echo (prints string), exit (exits app), help (prints help manual). Also has support for unsupported commands.
+* **objects.s**: Added objects to showcase how they work.
+* **command_table.s**: Upgraded Tiny Shell with command tables.
 
 
 * **lab1.s**: Hello world example.
