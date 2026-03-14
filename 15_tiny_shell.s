@@ -12,7 +12,7 @@ s_cmd_unsupported: .asciz "Command not supported!\n" # UNSUPPORTED COMMAND MESSA
 s_cmd_exit: .asciz "exit" # COMMAND TO EXIT TINY SHELL
 s_cmd_echo: .asciz "echo" # COMMAND TO ECHO A STRING
 s_cmd_help: .asciz "help" # COMMAND TO PRINT HELP MANUAL
-s_help_manual: .asciz "Available commands:\n>echo\n>exit\n>help\n"
+s_help_manual: .asciz "Available commands:\n>echo\n>exit\n>help\n" # HELP MANUAL
 
 .text
 _start:
