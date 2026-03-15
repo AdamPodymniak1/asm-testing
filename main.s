@@ -12,6 +12,9 @@ _start:
     sub $4, %rsp
     movl $0x22222222, (%rsp)
 
+    sub $4, %rsp
+    movl $0x33333333, (%rsp)
+
     # Add offset of 4 to talk to the first variable
     # movl $0x33333333, 4(%rsp)
     # That's how most compilers work, because they can dynamically change offset of each variable kept in data table (which is more optimized)
