@@ -32,6 +32,7 @@ These files represent my current study progression:
 * **16_objects.s**: Added objects to showcase how they work.
 * **17_command_table.s**: Upgraded Tiny Shell with command tables.
 * **18_sha256.s**: Created a sha256 encoder. Also started using other system for writing functions that looks more readable.
+* **19_random_number.s**: A random number generator with raw to decimal convertor and a range settings.
 
 
 * **lab1.s**: Hello world example.
