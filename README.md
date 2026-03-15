@@ -35,9 +35,11 @@ These files represent my current study progression:
 * **19_basic_heap.s**: Basic code showcasing how heap works using Brk() code.
 * **20_vtables_and_oop.s**: Example of how OOP languages are compiled to assembly and how Virtual Tables work.
 * **21_random_number.s**: A random number generator with raw to decimal convertor and a range settings.
-* **22_random_number.s**: An array of random numbers in range 1-100. Used as a template for further sorting techniques.
+* **22_random_array.s**: An array of random numbers in range 1-100. Used as a template for further sorting techniques.
+* **23_recursion.s**: Simple factorial function using recursion.
+* **24_random_number.s**: Quicksort algorithm using code from random_array as basis.
 
-* **25_sha256.s**: Created a sha256 encoder. Also started using other system for writing functions that looks more readable.
+* **26_sha256.s**: Created a sha256 encoder. Also started using other system for writing functions that looks more readable.
 
 
 * **lab1.s**: Hello world example.
