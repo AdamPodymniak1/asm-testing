@@ -5,6 +5,7 @@ The included `Makefile` is designed to automate the assembly and linking process
 * **`make run`**: Compiles, links and runs the main.s file.
 * **`make SRC=filename.s`**: Assembles and links the specified file.
 * **`make run SRC=filename.s`**: Compiles the file and immediately executes the binary.
+* **`make debug`**: Starts TUI debuger in GDB with source code, registers, and stack at display.
 
 Added for personal convenience. You can still compile and link it yourself.
 
@@ -37,8 +38,8 @@ These files represent my current study progression:
 * **21_random_number.s**: A random number generator with raw to decimal convertor and a range settings.
 * **22_random_array.s**: An array of random numbers in range 1-100. Used as a template for further sorting techniques.
 * **23_recursion.s**: Simple factorial function using recursion.
-* **24_random_number.s**: Quicksort algorithm using code from random_array as basis.
-
+* **24_quicksort.s**: Quicksort algorithm using code from random_array as basis.
+* **25_binary_search.s**: Binary search algorithm using code from quicksort as basis.
 * **26_sha256.s**: Created a sha256 encoder. Also started using other system for writing functions that looks more readable.
 
 
