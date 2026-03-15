@@ -8,10 +8,10 @@ ASFLAGS = -g
 all: $(BASE)
 
 $(BASE): $(BASE).o
-	ld $< -o $@
+	@ld $< -o $@
 
 $(BASE).o: $(SRC)
-	as $(ASFLAGS) $< -o $@
+	@as $(ASFLAGS) $< -o $@
 
 debug:
 	@# This ensures we build the target corresponding to the current SRC
