@@ -18,3 +18,4 @@ run
 # jump exit // exits the program (then q to exit completely)
 # layout src // displays source code
 # int3 // in asm code, to break at speciffic point
+# source ~/.gdb-dashboard // open dashboard
