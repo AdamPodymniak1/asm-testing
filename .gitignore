@@ -6,3 +6,4 @@ main
 !*.s
 !Makefile
 !.gitignore
+!.gdbinit
