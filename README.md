@@ -31,6 +31,7 @@ These files represent my current study progression:
 * **tiny_shell.s**: Tiny Shell with three commands: echo (prints string), exit (exits app), help (prints help manual). Also has support for unsupported commands.
 * **objects.s**: Added objects to showcase how they work.
 * **command_table.s**: Upgraded Tiny Shell with command tables.
+* **sha256.s**: Created a sha256 encoder. Also started using other system for writing functions that looks more readable.
 
 
 * **lab1.s**: Hello world example.
