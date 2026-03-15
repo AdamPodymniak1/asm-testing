@@ -3,16 +3,20 @@ BASE = $(basename $(SRC))
 
 ASFLAGS = -g
 
+.PHONY: all debug run clean
+
 all: $(BASE)
 
 $(BASE): $(BASE).o
-	@ld $(BASE).o -o $@
+	ld $< -o $@
 
 $(BASE).o: $(SRC)
-	@as $(ASFLAGS) $< -o $@
-\
-debug: all
-	@gdb -x .gdbinit ./$(BASE)
+	as $(ASFLAGS) $< -o $@
+
+debug:
+	@# This ensures we build the target corresponding to the current SRC
+	@$(MAKE) $(BASE)
+	gdb -x .gdbinit ./$(BASE)
 
 run: all
 	@./$(BASE)
