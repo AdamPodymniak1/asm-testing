@@ -22,3 +22,4 @@ run
 # tui reg general / vector / float / system / next / prev # showing different register groups
 # p/f $xmm0 # print floats
 # p/f $xmm0.v4_float[0] # print just floats
+# x/10s addr # shows string in address

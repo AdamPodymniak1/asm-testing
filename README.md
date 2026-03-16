@@ -44,6 +44,7 @@ These files represent my current study progression:
 * **26_sha256.s**: Created a sha256 encoder. Also started using other system for writing functions that looks more readable.
 * **27_floating_points.s**: Simple showcase of how floating point arithmetics work in assembly.
 * **28_C_functions.s**: Showcase on how C functions can be called in assembly.
+* **29_file_read.s**: Reading from file using sys_open and sys_read.
 
 
 * **lab1.s**: Hello world example.
