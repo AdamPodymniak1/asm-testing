@@ -21,3 +21,4 @@ run
 # source ~/.gdb-dashboard // open dashboard
 # tui reg general / vector / float / system / next / prev # showing different register groups
 # p/f $xmm0 # print floats
+# p/f $xmm0.v4_float[0] # print just floats
