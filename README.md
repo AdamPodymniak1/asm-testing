@@ -41,6 +41,7 @@ These files represent my current study progression:
 * **24_quicksort.s**: Quicksort algorithm using code from random_array as basis.
 * **25_binary_search.s**: Binary search algorithm using code from quicksort as basis.
 * **26_sha256.s**: Created a sha256 encoder. Also started using other system for writing functions that looks more readable.
+* **27_floating_points.s**: Simple showcase of how floating point arithmetics work in assembly.
 
 
 * **lab1.s**: Hello world example.
