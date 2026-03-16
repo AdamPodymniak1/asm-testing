@@ -19,3 +19,4 @@ run
 # layout src // displays source code
 # int3 // in asm code, to break at speciffic point
 # source ~/.gdb-dashboard // open dashboard
+# tui reg general / vector / float / system / next / prev # showing different register groups
