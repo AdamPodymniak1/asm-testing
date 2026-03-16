@@ -3,6 +3,7 @@
 The included `Makefile` is designed to automate the assembly and linking process. Instead of typing long terminal commands for every file, you can simply run:
 
 * **`make run`**: Compiles, links and runs the main.s file.
+* **`make run`**: Compiles, links with GDB (requires main) and runs the main.s file with external C functions.
 * **`make SRC=filename.s`**: Assembles and links the specified file.
 * **`make run SRC=filename.s`**: Compiles the file and immediately executes the binary.
 * **`make debug`**: Starts TUI debuger in GDB with source code, registers, and stack at display.
@@ -42,6 +43,7 @@ These files represent my current study progression:
 * **25_binary_search.s**: Binary search algorithm using code from quicksort as basis.
 * **26_sha256.s**: Created a sha256 encoder. Also started using other system for writing functions that looks more readable.
 * **27_floating_points.s**: Simple showcase of how floating point arithmetics work in assembly.
+* **28_C_functions.s**: Showcase on how C functions can be called in assembly.
 
 
 * **lab1.s**: Hello world example.

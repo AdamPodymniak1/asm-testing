@@ -3,25 +3,22 @@
 .global main
 
 .data
-    msg: .asciz "Hello world!"
-    fmt: .asciz "The msg is: %s\n"
+    msg1: .asciz "Hello"
+    msg2: .asciz "test!"
+    fmt: .asciz "The msg is: %s %s\n"
 
 .text
 main:
-    # 16-byte stack alignment
-    subq $8, %rsp
-    
-    # Load addresses into registers
-    lea fmt(%rip), %rdi
-    lea msg(%rip), %rsi
+    # Load addresses into registers (V-ABI convencion applies)
+    mov $fmt, %rdi
+    mov $msg1, %rsi
+    mov $msg2, %rdx
     
     # Clear RAX (variadic printf requires number of vector regs)
     xor %rax, %rax
     
     call printf
     
-    # Restore stack and exit
-    add $8, %rsp
     mov $0, %rdi
     call exit
 
