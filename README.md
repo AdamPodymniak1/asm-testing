@@ -45,6 +45,7 @@ These files represent my current study progression:
 * **27_floating_points.s**: Simple showcase of how floating point arithmetics work in assembly.
 * **28_C_functions.s**: Showcase on how C functions can be called in assembly.
 * **29_file_read.s**: Reading from file using sys_open and sys_read.
+* **30_file_create_write.s**: Creating and writing to text file.
 
 
 * **lab1.s**: Hello world example.
