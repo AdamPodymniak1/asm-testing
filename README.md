@@ -49,7 +49,8 @@ These files represent my current study progression:
 
 
 * **lab1.s**: Hello world example.
-* **lab1.s**: Different loops.
+* **lab2.s**: Different loops.
+* **lab3.s**: Converting hex to ASCII.
 
 ---
 
