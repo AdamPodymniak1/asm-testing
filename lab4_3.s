@@ -36,7 +36,7 @@ _start:
 # w %rax (odpowiedniej dlugosci) liczbe podlegajaca konwersji,
 # w rejestrze %rdi adres bufora (pozycji odpowiadajacej cyfrze jednosci).
 
-#	...
+    mov var64, %rax
 
 	mov	$str+25 , %rdi
 
@@ -68,8 +68,19 @@ _start:
 # Nadpisywane rejestry: ustalic
 
 convert_dec:
+    mov $10, %rbx # Dzielnik w rejestrze RBX
+convert:
+    xor %rdx, %rdx # Zerowanie przed dzieleniem, bo wynik overflowuje do RDX
 
-#	...
+    div %rbx
+    add $48, %dl # Przesuń do przestrzeni znaków ASCII
+    mov %dl, (%rdi) # Zapisz znak
+    dec %rdi # Przesuń wskaźnik
+
+    // Pętla
+    # cmp $0, %rax
+    and %rax, %rax # Szybsze porównywanie, czy rax = 0 (może być and/or)
+    jnz convert
 
 	ret
 
