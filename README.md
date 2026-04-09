@@ -52,6 +52,7 @@ These files represent my current study progression:
 * **lab2.s**: Different loops.
 * **lab3.s**: Converting hex to ASCII.
 * **lab4.s**: Converting hex to ASCII using lookup tables. Converting to decimals. Linking external functions.
+* **lab5.s**: Switch-case functions and linking with C functions.
 
 ---
 
