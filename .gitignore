@@ -8,3 +8,4 @@ main
 !.gitignore
 !.gdbinit
 !.v-abi-convencion-remeber
+!*.c
