@@ -53,7 +53,7 @@ These files represent my current study progression:
 * **lab3.s**: Converting hex to ASCII.
 * **lab4.s**: Converting hex to ASCII using lookup tables. Converting to decimals. Linking external functions.
 * **lab5.s**: Switch-case functions and linking with C functions.
-* **lab6.s**: Recursive functions and GCD.
+* **lab6.s**: Recursive functions and GCD. Shared object and dynamic libraries.
 
 ---
 

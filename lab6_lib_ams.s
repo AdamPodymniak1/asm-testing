@@ -22,9 +22,9 @@ ret_str:	.ascii	"rip = %lx\trsp = %lx\tret  counter = %d\n\0"
 print_call:
 
 lea	-7(%rip) , %rsi
-incl	counter
-mov	counter , %ecx
-mov	$call_str , %rdi
+incl	counter(%rip) # Edytowanie względne (z uwzględnieniem przesunięcia o %rip)
+mov	counter(%rip) , %ecx
+lea	call_str(%rip) , %rdi
 
 jmp	print_registers
 
@@ -33,9 +33,9 @@ jmp	print_registers
 print_ret:
 
 lea	-7(%rip) , %rsi
-mov	counter , %ecx
-decl	counter
-mov	$ret_str , %rdi
+mov	counter(%rip) , %ecx
+decl	counter(%rip)
+lea	ret_str(%rip) , %rdi
 
 ##########################################################
 
