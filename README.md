@@ -63,7 +63,7 @@ These files represent my current study progression:
 * **kol5.s**: Wypisywanie przez syscall str2 powstałego ze scalenia dwóch innych stringów.
 * **kol6.s**: Wypisywanie przez syscall tylko liter zapisanych z ciągu str1 do str2.
 * **kol7.s**: Wypisywanie przez printf wyniku działania (a + b + c + d ) / 8, gdzie a, b, c i d są zczytywane jako parametry z konsoli.
-* **kol7.s**: Wypisywanie przez printf ilości zer w tablicy.
+* **kol8.s**: Wypisywanie przez printf ilości zer w tablicy.
 
 
 ---
