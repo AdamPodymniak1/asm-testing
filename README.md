@@ -55,6 +55,16 @@ These files represent my current study progression:
 * **lab5.s**: Switch-case functions and linking with C functions.
 * **lab6.s**: Recursive functions and GCD.
 
+
+* **kol1.s**: Wypisywanie przez printf wyniku obliczenia 4 * (a + b), gdzie a i b są zczytywane jako parametry z konsoli.
+* **kol2.s**: Wypisywanie przez printf minimalnej i maksymalnej wartości z tablicy, oraz podanie ilości liczb różnych od 0.
+* **kol3.s**: Wypisywanie przez printf maksymalnej wartości z tablicy i podanie jej indeksu.
+* **kol4.s**: Wypisywanie przez printf średniej wartości elementów z tablicy.
+* **kol5.s**: Wypisywanie przez syscall str2 powstałego ze scalenia dwóch innych stringów.
+* **kol6.s**: Wypisywanie przez syscall tylko liter zapisanych z ciągu str1 do str2.
+* **kol6.s**: Wypisywanie przez printf wyniku działania (a + b + c + d ) / 8, gdzie a, b, c i d są zczytywane jako parametry z konsoli.
+
+
 ---
 
 ### Status
