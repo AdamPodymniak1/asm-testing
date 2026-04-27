@@ -85,7 +85,5 @@ ret
 
 #################################################################
 
-.section .note.GNU-stack,"",@progbits
-
 # gcc kol8.s -o kol8 -no-pie
 # ./kol8
