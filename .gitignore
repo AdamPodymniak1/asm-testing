@@ -9,3 +9,4 @@ main
 !.gdbinit
 !.v-abi-convencion-remeber
 !*.c
+!*.h

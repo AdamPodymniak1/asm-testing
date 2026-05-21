@@ -1,93 +1,124 @@
 .section .note.GNU-stack, "", @progbits
-
 .globl	main
+
+# Liczba sumowanych par (+ i -) elementow.
+
+.equ	N , 10000000000
+.equ	NF, N * 6
 
 .data
 
-str_tf:		.string "tfloat = %3.20Lf\n"
-str_d:		.string "double = %3.20lf\n"
-str_f:		.string "float = %3.20f\n"
-
-cw:	.word 0
-
-f_tf:	.tfloat	0.0 # 10 bajtów, zwiększona precyzja
-f_d:	.double	0.0
-f_f:	.float		0.0
-f_2:	.float		2.0
-f_nan:	.long 0x7f800001	# NaN
-f_inf:	.long 0x7f800000	# +inf
+nfop:		.quad	NF
+ndiv:		.double 0.000000001
+timetab:	.double	0.0, 0.0, 0.0
+cw:		.word		0
+str1:		.string	" PI_ref =\t%1.20Lf\n PI_com =\t%1.20Lf\n delta  =\t%1.20Lf\n"
+str2:		.string	"USER CPU TIME = %lf s\nGFLOPS = %2.2lf\n"
 
 .text
 
 main:
+
 sub	$8 , %rsp
 
-finit # Aktywacja dawnej wersji obliczeń na floating point numbers
+# Rozpocznij pomiar czasu.
+
+call	init_time
+
+mov	$N , %rcx
+
+finit
 
 # 1) Ustaw odpowiednia precyzje obliczen oraz sposob zaokraglania.
-# 2) Wlacz ("odmaskuj") sygnalizwoanie wyjatkow.
+# p: 0 - single, 2 - double, 3 - extended
 
-fstcw	cw
-andw	$0xF0E0 , cw # sygnalizowanie wyjątków
-orw	$0x0305 , cw # wyznaczanie precyzji
-fldcw	cw
+fstcw	cw(%rip)
+andw	$0xf0ff , cw(%rip)
+orw	$0x0300 , cw(%rip)
+fldcw	cw(%rip)
 
-# 1) Wykonaj dzialanie sqrt(2.0) * sqrt(2.0) - 2.0
-# 2) Wymus zgloszenie (wybranego) wyjatku
 
-flds f_2 # st(0) = 2
-fst %st(1) # st(0) = 2, st(1) = 2
-# fchs # zmiana znaku
-fsqrt # st(0) = sqrt(2), st(1) = 2
-fmul %st(0) # st(0) = st(0) * st(0), st(1) = 2
-fsubp # st(1) = st(0) - st(1), pop st(0), st(1) => st(0), wynik w st(0)
+# Obliczanie wartosci PI:
+#
+# +(1/1) - (1/3) + (1/5) - (1/7) + (1/9) + ... => PI/4
+#
 
-fldz # załaduj zero
-fdivrp # st(1)/st(0)
+# 2) Nadaj rejestrom FPU wartosci poczatkowe.
 
-# Wydrukuj wynik z rejestru %st(0)
+fld1
+fadd	%st(0)
+fldz
+fld1
 
-call	print_tfloat
+# st(2) - stala = 2
+# st(1) - suma = 0
+# st(0) - mianownik = 1
 
-xor	%eax , %eax
-add	$8 , %rsp
-ret
+for:
 
-#####################################################
+# 3a) Oblicz pierwszy element (dodatni).
 
-print_tfloat:
-sub	$24 , %rsp
+fld1
+fdiv	%st(1)		# st(0) = st(0)/st(1) = 1/m
+faddp	%st(2)		# st(1) = suma + 1/m
+fadd	%st(2)		# st(0) = m + 2
+
+# 3b) Analogicznie oblicz drugi element (i odejmij go od sumy).
+
+fld1
+fdiv	%st(1)		# st(0) = st(0)/st(1) = 1/m
+fsubrp	%st(2)		# st(1) = suma - 1/m
+fadd	%st(2)		# st(0) = m + 2
+
+dec	%rcx
+jnz	for
+
+# 4) Wynik *=4
+
+fxch	%st(1)
+fadd	%st(0) , %st(0)
+fadd	%st(0) , %st(0)
+
+# Roznica miedzy wartoscia obliczona w %st(0) a "dokladna" PI.
+
+fldpi
+fsub	%st(1) , %st(0)
+fabs
+
+# Wrzuc wszystko na stos CPU.
+
+sub	$16 , %rsp
 fstpt	(%rsp)
-mov	$str_tf , %rdi
+
+sub	$16 , %rsp
+fstpt	(%rsp)
+
+fldpi
+sub	$16 , %rsp
+fstpt	(%rsp)
+
+# Zakoncz pomiar czasu.
+
+lea	timetab(%rip) , %rdi
+call	read_time
+
+# Wydrukuj obliczone wartosci, zmierzony czas i wydajnosc obliczen.
+
+lea	str1(%rip) , %rdi
 xor	%eax , %eax
 call	printf
-add	$24 , %rsp
-ret
 
-#####################################################
+lea	str2(%rip) , %rdi
+movsd	timetab+8(%rip) , %xmm0
 
-print_double:
-sub	$8 , %rsp
-fstl	f_d
-movsd	f_d , %xmm0
-mov	$str_d , %rdi
-mov	$1 , %eax
+mov	nfop(%rip) , %rax
+cvtsi2sd	%rax , %xmm1
+divsd	%xmm0 , %xmm1
+movsd	ndiv(%rip) , %xmm2
+mulsd	%xmm2 , %xmm1
+
+mov	$2 , %eax
 call	printf
-add	$8 , %rsp
+
+add	$56 , %rsp
 ret
-
-#####################################################
-
-print_float:
-sub	$8 , %rsp
-fsts	f_f
-movss	f_f , %xmm0
-cvtss2sd %xmm0 , %xmm0
-mov	$str_f , %rdi
-mov	$1 , %eax
-call	printf
-add	$8 , %rsp
-ret
-
-#####################################################
-
