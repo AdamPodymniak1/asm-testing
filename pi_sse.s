@@ -15,12 +15,12 @@ mxcsr:		.long	0
 str1:		.string "PI_com = %3.20lf\nUSER CPU TIME = %lf s\nGFLOPS = %2.2lf\n"
 
 # Wyrownanie danych do granicy 16 bajtow.
-#.align  16
+.align  16
 
-suma:		.double   0.0
-mianownik:	.double   1.0
-licznik:	.double   4.0
-plus_2:		.double   2.0
+suma:		.double   0.0, 0.0
+mianownik:	.double   1.0, 3.0
+licznik:	.double   4.0, -4.0
+plus_2:		.double   4.0, 4.0
 
 .text
 
@@ -47,15 +47,15 @@ ldmxcsr	mxcsr(%rip)
 
 # Wartosci poczatkowe rejestrow:
 
-movsd   suma(%rip) , %xmm0
-movsd   licznik(%rip) , %xmm1
-movsd   plus_2(%rip) ,  %xmm2
-movsd   mianownik(%rip) , %xmm3
-movsd   %xmm1 , %xmm4			#kopia licznika
+movapd   suma(%rip) , %xmm0
+movapd   licznik(%rip) , %xmm1
+movapd   plus_2(%rip) ,  %xmm2
+movapd   mianownik(%rip) , %xmm3
+movapd   %xmm1 , %xmm4			# kopia licznika
 
 # Obliczanie wartosci PI:
 #
-# +(1/1) - (1/3) + (1/5) - (1/7) + (1/9) + ... => PI/4
+# +(4/1) + (-4/3) + (4/5) + (-4/7) + (4/9) + ... => PI
 #
 # Dwa elementy ("+" i "-") szeregu obliczane sa:
 #
@@ -68,21 +68,17 @@ for_loop:
 
 # wersja a),  naiwna:
 
-divsd	%xmm3 , %xmm1	# licznik = licznik / mianownik
-addsd	%xmm1 , %xmm0	# suma += licznik / mianownik
-movsd	%xmm4 , %xmm1	# przywroc licznik 
-addsd	%xmm2 , %xmm3	# mianownik += 2.0
-
-divsd	%xmm3 , %xmm1	# licznik = licznik / mianownik
-subsd	%xmm1 , %xmm0	# suma -= licznik / mianownik
-movsd	%xmm4 , %xmm1	# przywroc licznik 
-addsd	%xmm2 , %xmm3	# mianownik += 2.0
+divpd	%xmm3 , %xmm1	# licznik = licznik / mianownik
+addpd	%xmm1 , %xmm0	# suma += licznik / mianownik
+movapd	%xmm4 , %xmm1	# przywroc licznik 
+addpd	%xmm2 , %xmm3	# mianownik += 4.0
 
 dec	%rcx
 jnz	for_loop
 
 # Zapisz wynik.
 
+haddpd   %xmm0 , %xmm0
 movsd	%xmm0 , suma(%rip)
 
 # Zakoncz pomiar czasu.
