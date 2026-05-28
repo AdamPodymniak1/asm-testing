@@ -55,6 +55,7 @@ These files represent my current study progression:
 * **lab5.s**: Switch-case functions and linking with C functions.
 * **lab6.s**: Recursive functions and GCD. Shared object and dynamic libraries.
 * **lab9.s**: Floating point operations, precision and exception handling.
+* **lab10.s**: Optimizing matrix multiplication using Cache vs RAM.
 
 
 * **kol1.s**: Wypisywanie przez printf wyniku obliczenia 4 * (a + b), gdzie a i b są zczytywane jako parametry z konsoli.
