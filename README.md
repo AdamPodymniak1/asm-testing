@@ -70,6 +70,10 @@ These files represent my current study progression:
 * **kol1_10.s**: To samo co kol3.
 
 
+* **kol2_1.s**: Wyliczanie formuły podanej przez prowadzącego z zachowaniem typów zmiennych (kod w assembly).
+* **kol2_2.s**: Optymalizacja mnożenia wektora przez macierz (kod w C).
+* **kol2_3.s**: Obliczanie RMS dowolną metodą (kod w assembly).
+
 ---
 
 ### Status
