@@ -58,16 +58,16 @@ These files represent my current study progression:
 * **lab10.s**: Optimizing matrix multiplication using Cache vs RAM.
 
 
-* **kol1.s**: Wypisywanie przez printf wyniku obliczenia 4 * (a + b), gdzie a i b są zczytywane jako parametry z konsoli.
-* **kol2.s**: Wypisywanie przez printf minimalnej i maksymalnej wartości z tablicy, oraz podanie ilości liczb różnych od 0.
-* **kol3.s**: Wypisywanie przez printf maksymalnej wartości z tablicy i podanie jej indeksu.
-* **kol4.s**: Wypisywanie przez printf średniej wartości elementów z tablicy.
-* **kol5.s**: Wypisywanie przez syscall str2 powstałego ze scalenia dwóch innych stringów.
-* **kol6.s**: Wypisywanie przez syscall tylko liter zapisanych z ciągu str1 do str2.
-* **kol7.s**: Wypisywanie przez printf wyniku działania (a + b + c + d ) / 8, gdzie a, b, c i d są zczytywane jako parametry z konsoli.
-* **kol8.s**: Wypisywanie przez printf ilości zer w tablicy.
-* **kol9.s**: Wypisywanie przez printf indeks pierwszego zera w tablicy.
-* **kol10.s**: To samo co kol3.
+* **kol1_1.s**: Wypisywanie przez printf wyniku obliczenia 4 * (a + b), gdzie a i b są zczytywane jako parametry z konsoli.
+* **kol1_2.s**: Wypisywanie przez printf minimalnej i maksymalnej wartości z tablicy, oraz podanie ilości liczb różnych od 0.
+* **kol1_3.s**: Wypisywanie przez printf maksymalnej wartości z tablicy i podanie jej indeksu.
+* **kol1_4.s**: Wypisywanie przez printf średniej wartości elementów z tablicy.
+* **kol1_5.s**: Wypisywanie przez syscall str2 powstałego ze scalenia dwóch innych stringów.
+* **kol1_6.s**: Wypisywanie przez syscall tylko liter zapisanych z ciągu str1 do str2.
+* **kol1_7.s**: Wypisywanie przez printf wyniku działania (a + b + c + d ) / 8, gdzie a, b, c i d są zczytywane jako parametry z konsoli.
+* **kol1_8.s**: Wypisywanie przez printf ilości zer w tablicy.
+* **kol1_9.s**: Wypisywanie przez printf indeks pierwszego zera w tablicy.
+* **kol1_10.s**: To samo co kol3.
 
 
 ---
