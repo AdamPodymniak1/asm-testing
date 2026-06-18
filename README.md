@@ -56,6 +56,9 @@ These files represent my current study progression:
 * **lab6.s**: Recursive functions and GCD. Shared object and dynamic libraries.
 * **lab9.s**: Floating point operations, precision and exception handling.
 * **lab10.s**: Optimizing matrix multiplication using Cache vs RAM.
+* **lab11.s**: Dalsza optymalizacja (asm).
+* **lab12.s**: Dalsza optymalizacja (C).
+* **lab13.s**: Dalsza optymalizacja (C).
 
 
 * **kol1_1.s**: Wypisywanie przez printf wyniku obliczenia 4 * (a + b), gdzie a i b są zczytywane jako parametry z konsoli.
